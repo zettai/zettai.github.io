@@ -9,6 +9,7 @@
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" href="/icon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="familjen-grotesk-600.woff2" as="font" type="font/woff2" crossorigin>
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Luis Salas Gonzales">
 <meta property="og:url" content="https://zettai.github.io/">
@@ -42,25 +43,72 @@
 }
 </script>
 <style>
-  :root { color-scheme: light dark; --fg: #1a1a1a; --muted: #555; --bg: #fdfdfb; --link: #1a4fa0; }
-  @media (prefers-color-scheme: dark) { :root { --fg: #e8e8e6; --muted: #a8a8a4; --bg: #161616; --link: #8ab4f8; } }
+  @font-face { font-family: "Familjen Grotesk"; font-weight: 600; font-display: swap; src: url(familjen-grotesk-600.woff2) format("woff2"); }
+  :root { color-scheme: light dark; --fg: #1d232b; --muted: #5b6472; --bg: #f7f8fa; --rule: #dfe3ea; --accent: #1a4fa0; --tile: #e6edf8; }
+  @media (prefers-color-scheme: dark) { :root { --fg: #e6e9ee; --muted: #9aa3b1; --bg: #12161c; --rule: #2a313b; --accent: #8ab4f8; --tile: #1c2633; } }
   body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  main { max-width: 40rem; margin: 0 auto; padding: 2.5rem 1rem 4rem; }
-  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 .25rem; }
-  h2 { font-size: 1.15rem; margin: 2.25rem 0 .5rem; }
-  .role { color: var(--muted); margin: 0 0 1.5rem; }
-  .lede { font-size: 1.1rem; }
-  a { color: var(--link); }
+  main { max-width: 40rem; margin: 0 auto; padding: 3rem 1rem 4rem; }
+  h1, h2 { font-family: "Familjen Grotesk", system-ui, sans-serif; font-weight: 600; letter-spacing: -0.01em; }
+  h1 { font-size: 2.4rem; line-height: 1.1; margin: 0 0 .4rem; }
+  h2 { font-size: 1.3rem; margin: 2.75rem 0 1rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
+  a { color: var(--accent); text-underline-offset: .15em; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
   ul { padding-left: 1.2rem; }
-  li { margin: .3rem 0; }
-  .photo { display: block; width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin: 0 0 1.25rem; }
+  li { margin: .4rem 0; }
+  .hero { display: grid; grid-template-columns: 128px 1fr; gap: 1.5rem; align-items: center; margin-bottom: 1.75rem; }
+  .photo { display: block; width: 128px; height: 128px; border-radius: 28px; object-fit: cover; }
+  .role { color: var(--muted); margin: 0 0 .75rem; }
+  .reach { display: flex; gap: .5rem; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; }
+  .reach li { margin: 0; }
+  .reach a { display: inline-block; padding: .2rem .8rem; border: 1px solid var(--rule); border-radius: 999px; font-size: .9rem; text-decoration: none; }
+  .reach a:hover { border-color: var(--accent); }
+  .lede { font-size: 1.15rem; line-height: 1.55; margin: 0; }
+  /* Work and Volunteer: one line per sector, icon tiles joined by a rail */
+  .rail { list-style: none; padding: 0; margin: 0; }
+  .rail li { position: relative; margin: 0; padding: 0 0 1.5rem 3.25rem;
+    background: linear-gradient(var(--rule), var(--rule)) no-repeat 1.125rem 2.75rem / 1px calc(100% - 3rem); }
+  .rail li:last-child { background: none; padding-bottom: 0; }
+  .rail li::before, .rail li::after { content: ""; position: absolute; left: 0; top: .1rem; width: 2.25rem; height: 2.25rem; }
+  .rail li::before { background: var(--tile); border-radius: .6rem; }
+  .rail li::after { background: var(--accent); -webkit-mask: var(--i) center / 1.2rem no-repeat; mask: var(--i) center / 1.2rem no-repeat; }
+  .rail strong { display: block; font-family: "Familjen Grotesk", system-ui, sans-serif; font-weight: 600; font-size: 1.15rem; line-height: 1.3; padding-top: .4rem; margin-bottom: .2rem; }
+  .k-platform-engineering { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M12 3 3 7.5l9 4.5 9-4.5z'/><path d='m3 12 9 4.5 9-4.5'/><path d='m3 16.5 9 4.5 9-4.5'/></svg>"); }
+  .k-energy-and-utilities { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M13 2 4 14h7l-1 8 9-12h-7z'/></svg>"); }
+  .k-education-and-professional-services { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='6' width='14' height='12' rx='2'/><path d='m16 10.5 6-3.5v10l-6-3.5'/></svg>"); }
+  .k-retail { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='9' cy='20' r='1.4'/><circle cx='18' cy='20' r='1.4'/><path d='M2 3h3l2.6 12.5h11.2L21 7H6'/></svg>"); }
+  .k-internal-ai { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.5-5.2A8.5 8.5 0 1 1 21 12z'/><path d='M8.5 12h.01M12 12h.01M15.5 12h.01'/></svg>"); }
+  .k-earlier-as-an-engineer { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='m8 7-5 5 5 5M16 7l5 5-5 5'/></svg>"); }
+  .k-civic-tech-volunteer { --i: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M3 11h18v10H3z'/><path d='M8 11V3h8v8'/><path d='M8 16h8'/></svg>"); }
+  /* Credentials: the grouped line shows its parts as tags; commas stay in the text */
+  .tags strong { display: block; font-weight: 600; }
+  .tag { display: inline-block; margin: .35rem .3rem 0 0; padding: .05rem .6rem; border: 1px solid var(--rule); border-radius: 999px; font-size: .85rem; line-height: 1.6; }
+  .sep { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .creds { list-style: none; padding: 0; }
+  .creds li { position: relative; padding-left: 1.25rem; margin: .5rem 0; }
+  .creds li::before { content: ""; position: absolute; left: 0; top: .6em; width: .45rem; height: .45rem; border-radius: 2px; background: var(--accent); }
+  footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .95rem; }
+  footer h2 { font-size: 1rem; border: 0; padding: 0; margin: 0 0 .25rem; }
+  footer ul { display: flex; gap: 1.25rem; list-style: none; padding: 0; margin: 0; }
+  @media (max-width: 30rem) {
+    .hero { grid-template-columns: 1fr; gap: 1rem; }
+    .photo { width: 104px; height: 104px; border-radius: 24px; }
+    h1 { font-size: 2rem; }
+  }
 </style>
 </head>
 <body>
 <main>
-  <img class="photo" src="luis-salas-gonzales.jpg" width="160" height="160" alt="Luis Salas Gonzales">
-  <h1>Luis Salas Gonzales</h1>
-  <p class="role"><!-- public:role-line -->Associate Director, Digital Engineering at Launch by NTT DATA. Everett, Washington.<!-- /public:role-line --></p>
+  <header class="hero">
+    <img class="photo" src="luis-salas-gonzales-256.jpg" width="128" height="128" alt="Luis Salas Gonzales">
+    <div>
+      <h1>Luis Salas Gonzales</h1>
+      <p class="role"><!-- public:role-line -->Associate Director, Digital Engineering at Launch by NTT DATA. Everett, Washington.<!-- /public:role-line --></p>
+      <ul class="reach">
+        <li><a href="https://www.linkedin.com/in/luissalasgonzales">LinkedIn</a></li>
+        <li><a href="https://github.com/zettai">GitHub</a></li>
+      </ul>
+    </div>
+  </header>
 
   <p class="lede"><!-- public:bio-short -->Luis Salas Gonzales is an engineering leader at Launch by NTT DATA in Everett, Washington, with over 15 years in software and a current focus on AI-enabled delivery and forward deployed engineering.<!-- /public:bio-short --></p>
 
@@ -68,33 +116,35 @@
   <p><!-- public:bio-long -->Luis Salas Gonzales (Luis Salas) is Associate Director of Digital Engineering at Launch by NTT DATA, based in Everett, Washington. He has worked in software for over 15 years, the last 12 delivering for US clients in energy, finance, healthcare, travel, retail, education and biotech, progressing from individual contributor to Associate Director inside one organization across eleven years and nine client engagements. His recent work applies agentic workflows and multi-agent tooling to large legacy estates, and he holds the OpenAI Forward Deployed Expert bootcamp credential, the Cursor Partner FDE Bootcamp accreditation and ten OpenAI Partner certifications (2026). He studied psychology at the Pontificia Universidad Católica del Perú.<!-- /public:bio-long --></p>
 
   <h2>Work</h2>
-  <ul><!-- public:work -->
-    <li>Platform engineering: led the internal developer platform pod of a multi-team platform programme, delivering working Backstage and EventCatalog instances across the client's existing repositories. Then used skills and multi-agent AI flows to roll changes across a large estate of legacy repositories, work the client had no in-house practice for yet.</li>
-    <li>Energy and utilities: team lead in a programme of about six teams that rebuilt a customer self-service portal as React and Next.js micro frontends on a modernized Java backend, with automated testing, quality gates, feature flags and blue/green releases. Some flows shipped in five or more languages.</li>
-    <li>Education and professional services: front-end team lead for an ML-based coaching platform, where learners answer on camera and their words are scored against the intents each lesson expects. It shipped and is live.</li>
-    <li>Retail: first team lead role, on the front end of a multi-brand e-commerce platform, setting delivery playbooks with the architects and running the team's Scrum and code review.</li>
-    <li>Internal AI: front-end and platform engineer on a retrieval-augmented chat assistant for a company event, built by about six people in five weeks.</li>
-    <li>Earlier, as an engineer: front-end and full-stack work for clients in travel, finance, healthcare and biotech.</li>
+  <ul class="rail"><!-- public:work -->
+    <li class="k-platform-engineering"><strong>Platform engineering:</strong> led the internal developer platform pod of a multi-team platform programme, delivering working Backstage and EventCatalog instances across the client's existing repositories. Then used skills and multi-agent AI flows to roll changes across a large estate of legacy repositories, work the client had no in-house practice for yet.</li>
+    <li class="k-energy-and-utilities"><strong>Energy and utilities:</strong> team lead in a programme of about six teams that rebuilt a customer self-service portal as React and Next.js micro frontends on a modernized Java backend, with automated testing, quality gates, feature flags and blue/green releases. Some flows shipped in five or more languages.</li>
+    <li class="k-education-and-professional-services"><strong>Education and professional services:</strong> front-end team lead for an ML-based coaching platform, where learners answer on camera and their words are scored against the intents each lesson expects. It shipped and is live.</li>
+    <li class="k-retail"><strong>Retail:</strong> first team lead role, on the front end of a multi-brand e-commerce platform, setting delivery playbooks with the architects and running the team's Scrum and code review.</li>
+    <li class="k-internal-ai"><strong>Internal AI:</strong> front-end and platform engineer on a retrieval-augmented chat assistant for a company event, built by about six people in five weeks.</li>
+    <li class="k-earlier-as-an-engineer"><strong>Earlier, as an engineer:</strong> front-end and full-stack work for clients in travel, finance, healthcare and biotech.</li>
   <!-- /public:work --></ul>
 
   <h2>Volunteer</h2>
-  <ul><!-- public:volunteer -->
-    <li>Civic tech (volunteer): UI lead for a free tool that helped Peruvian voters filter election candidates by public records. Moved its API to serverless functions and published it as an Android app, which reached 7,814 installs around the 2021 election. The code is public on GitHub.</li>
+  <ul class="rail"><!-- public:volunteer -->
+    <li class="k-civic-tech-volunteer"><strong>Civic tech (volunteer):</strong> UI lead for a free tool that helped Peruvian voters filter election candidates by public records. Moved its API to serverless functions and published it as an Android app, which reached 7,814 installs around the 2021 election. The code is public on GitHub.</li>
   <!-- /public:volunteer --></ul>
 
   <h2>Credentials</h2>
-  <ul><!-- public:certifications -->
+  <ul class="creds"><!-- public:certifications -->
     <li>Forward Deployed Expert, FDE Bootcamp completion, OpenAI, 2026</li>
     <li>Partner FDE Bootcamp accreditation, Cursor, 2026</li>
-    <li>OpenAI Partner Certifications, 08/2026: Foundational Knowledge, Consultative Solutions Practitioner, Technical Practitioner, ChatGPT Solutions Practitioner, ChatGPT Deployment Practitioner, Codex Solutions Practitioner, API Deployment Practitioner, Cyber Solutions Practitioner, Codex Deployment Practitioner, Cyber Deployment Practitioner</li>
+    <li class="tags"><strong>OpenAI Partner Certifications, 08/2026:</strong> <span class="tag">Foundational Knowledge</span><span class="sep">, </span><span class="tag">Consultative Solutions Practitioner</span><span class="sep">, </span><span class="tag">Technical Practitioner</span><span class="sep">, </span><span class="tag">ChatGPT Solutions Practitioner</span><span class="sep">, </span><span class="tag">ChatGPT Deployment Practitioner</span><span class="sep">, </span><span class="tag">Codex Solutions Practitioner</span><span class="sep">, </span><span class="tag">API Deployment Practitioner</span><span class="sep">, </span><span class="tag">Cyber Solutions Practitioner</span><span class="sep">, </span><span class="tag">Codex Deployment Practitioner</span><span class="sep">, </span><span class="tag">Cyber Deployment Practitioner</span></li>
     <li>GenAI Academy: Green Belt, NTT DATA, 2026</li>
   <!-- /public:certifications --></ul>
 
+  <footer>
   <h2>Links</h2>
   <ul>
     <li><a href="https://www.linkedin.com/in/luissalasgonzales">LinkedIn</a></li>
     <li><a href="https://github.com/zettai">GitHub</a></li>
   </ul>
+  </footer>
 </main>
 </body>
 </html>
