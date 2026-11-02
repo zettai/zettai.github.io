@@ -1,0 +1,13 @@
+---
+description: Project conventions live in AGENTS.md; read it first
+alwaysApply: true
+---
+
+Read **[AGENTS.md](../../AGENTS.md)** at the repo root before making changes. It
+holds what this repo is, setup, commands, conventions, and gotchas, and is the
+source of truth shared by every agent tool used here.
+
+Put Cursor-only rules in sibling `.mdc` files, not here. Anything that would be
+true for another agent belongs in AGENTS.md instead.
+
+<!-- Managed by 'ror apply'. -->
