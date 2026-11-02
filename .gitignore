@@ -1,0 +1,25 @@
+
+# --- ror baseline: secrets and local state (managed by 'ror apply') ---
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+.netrc
+credentials.json
+service-account*.json
+secrets.yaml
+secrets.yml
+*.tfvars
+!example.tfvars
+.terraform/
+.DS_Store
+.claude/settings.local.json
+.claude/local/
+.cursor/mcp.local.json
+# --- end ror baseline ---
