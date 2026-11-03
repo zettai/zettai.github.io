@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>More agents or a better manager? | Luis Salas Gonzales</title>
+<meta name="description" content="Fifteen AI agents each saw one piece of a hidden flag. An experiment on whether to add more agents or put a better manager in charge of the final decision.">
+<link rel="canonical" href="https://zettai.github.io/articles/more-agents-or-a-better-manager/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/familjen-grotesk-600.woff2" as="font" type="font/woff2" crossorigin>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Luis Salas Gonzales">
+<meta property="og:title" content="More agents or a better manager?">
+<meta property="og:description" content="Fifteen AI agents each saw one piece of a hidden flag. Who should decide what it is?">
+<meta property="og:url" content="https://zettai.github.io/articles/more-agents-or-a-better-manager/">
+<meta property="og:image" content="https://zettai.github.io/articles/more-agents-or-a-better-manager/linkedin-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="Fifteen small crops of one flag in green, white and red, beside the title More agents or a better manager?">
+<meta property="article:published_time" content="2026-11-02">
+<meta property="article:author" content="Luis Salas Gonzales">
+<meta name="author" content="Luis Salas Gonzales">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="More agents or a better manager?">
+<meta name="twitter:description" content="Fifteen AI agents each saw one piece of a hidden flag. Who should decide what it is?">
+<meta name="twitter:image" content="https://zettai.github.io/articles/more-agents-or-a-better-manager/linkedin-preview.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "More agents or a better manager?",
+  "datePublished": "2026-11-02",
+  "author": { "@type": "Person", "name": "Luis Salas Gonzales", "url": "https://zettai.github.io/" },
+  "image": "https://zettai.github.io/articles/more-agents-or-a-better-manager/linkedin-preview.png",
+  "mainEntityOfPage": "https://zettai.github.io/articles/more-agents-or-a-better-manager/"
+}
+</script>
+<style>
+  @font-face { font-family: "Familjen Grotesk"; font-weight: 600; font-display: swap; src: url(/familjen-grotesk-600.woff2) format("woff2"); }
+  :root { color-scheme: light dark; --fg: #1d232b; --muted: #5b6472; --bg: #f7f8fa; --rule: #dfe3ea; --accent: #1a4fa0; --tile: #e6edf8; }
+  @media (prefers-color-scheme: dark) { :root { --fg: #e6e9ee; --muted: #9aa3b1; --bg: #12161c; --rule: #2a313b; --accent: #8ab4f8; --tile: #1c2633; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 18px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  a { color: var(--accent); text-underline-offset: .15em; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  .display { font-family: "Familjen Grotesk", system-ui, sans-serif; font-weight: 600; letter-spacing: -0.015em; }
+
+  .site { max-width: 64rem; margin: 0 auto; padding: 1.5rem 1.25rem 0; font-size: .95rem; }
+
+  /* Hero: the puzzle the agents faced, fifteen pieces and fifteen guesses. */
+  .hero { max-width: 64rem; margin: 0 auto; padding: 2.5rem 1.25rem 3.5rem; display: grid; grid-template-columns: 1fr 1.05fr; gap: 3.5rem; align-items: center; }
+  .hero h1 { font-size: clamp(2.6rem, 5.6vw, 4.1rem); line-height: 1.02; margin: 0 0 1.25rem; }
+  .dek { font-size: 1.2rem; line-height: 1.5; color: var(--muted); margin: 0 0 1.25rem; max-width: 26rem; }
+  .byline { color: var(--muted); margin: 0; font-size: .95rem; }
+  .pieces { margin: 0; }
+  .pieces ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: .7rem .55rem; }
+  .pieces li { margin: 0; }
+  .pieces img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border-radius: 6px; box-shadow: 0 0 0 1px var(--rule); }
+  .guess { display: block; font-size: .78rem; line-height: 1.25; margin-top: .3rem; }
+  .guess span { display: block; color: var(--muted); }
+  .pieces figcaption { color: var(--muted); font-size: .9rem; margin-top: 1rem; }
+  @media (prefers-reduced-motion: no-preference) {
+    .pieces li { animation: arrive .5s ease-out both; animation-delay: calc(var(--n) * 70ms); }
+    @keyframes arrive { from { opacity: 0; transform: translateY(6px); } }
+  }
+
+  /* Reading column, with figures allowed wider than the text. */
+  article { max-width: 38rem; margin: 0 auto; padding: 0 1.25rem 4rem; }
+  article > p, article li { margin: 0 0 1.1rem; }
+  article h2 { font-size: 1.55rem; line-height: 1.2; margin: 3.25rem 0 .9rem; }
+  article h3 { font-size: 1.15rem; line-height: 1.3; margin: 2rem 0 .5rem; }
+  .part { color: var(--muted); font-size: 1rem; margin: 4rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+  .part + h2 { margin-top: 1rem; }
+  figure.wide { width: min(58rem, calc(100vw - 2.5rem)); margin: 2.5rem 0 2.5rem 50%; transform: translateX(-50%); }
+  figure.wide img { display: block; width: 100%; height: auto; border-radius: 14px; }
+  figure.wide figcaption { max-width: 38rem; margin: .9rem auto 0; color: var(--muted); font-size: .95rem; line-height: 1.5; }
+  figure.wide figcaption b { color: var(--fg); font-weight: 600; }
+  .aside { font-style: italic; color: var(--muted); }
+  .close { margin: 3.5rem 0 1.5rem; }
+  .close .claim { font-size: 1.65rem; line-height: 1.25; margin: 0 0 1rem; }
+  .close .line { font-style: italic; color: var(--muted); margin: 0; }
+  dl.takeaways { margin: 2rem 0 0; display: grid; grid-template-columns: 9rem 1fr; gap: .75rem 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+  dl.takeaways dt { font-weight: 600; }
+  dl.takeaways dd { margin: 0; }
+  .thanks { margin: 3rem 0 0; font-style: italic; color: var(--muted); font-size: .95rem; }
+  footer { max-width: 38rem; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .95rem; }
+
+  @media (max-width: 52rem) {
+    .hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 1.5rem; }
+    .dek { max-width: none; }
+  }
+  @media (max-width: 30rem) {
+    body { font-size: 17px; }
+    .pieces ol { gap: .5rem .35rem; }
+    .pieces img { border-radius: 4px; }
+    .guess { font-size: .64rem; }
+    dl.takeaways { grid-template-columns: 1fr; gap: .2rem; }
+    dl.takeaways dd { margin-bottom: .75rem; }
+  }
+</style>
+</head>
+<body>
+<p class="site"><a href="/">Luis Salas Gonzales</a></p>
+
+<header class="hero">
+  <div>
+    <h1 class="display">More agents or a better manager?</h1>
+    <p class="dek">Fifteen AI agents each saw one piece of a hidden flag and named a country. Then one manager had to decide.</p>
+    <p class="byline"><time datetime="2026-11-02">November 2, 2026</time></p>
+  </div>
+  <figure class="pieces">
+    <ol>
+      <li style="--n:1"><img src="pieces/1.png" width="205" height="154" alt="Piece 1"><span class="guess">Libya <span>0.99</span></span></li>
+      <li style="--n:2"><img src="pieces/2.png" width="205" height="154" alt="Piece 2"><span class="guess">Türkiye <span>0.12</span></span></li>
+      <li style="--n:3"><img src="pieces/3.png" width="205" height="154" alt="Piece 3"><span class="guess">Peru <span>0.46</span></span></li>
+      <li style="--n:4"><img src="pieces/4.png" width="205" height="154" alt="Piece 4"><span class="guess">Libya <span>0.77</span></span></li>
+      <li style="--n:5"><img src="pieces/5.png" width="205" height="154" alt="Piece 5"><span class="guess">Libya <span>0.58</span></span></li>
+      <li style="--n:6"><img src="pieces/6.png" width="205" height="154" alt="Piece 6"><span class="guess">Pakistan <span>0.95</span></span></li>
+      <li style="--n:7"><img src="pieces/7.png" width="205" height="154" alt="Piece 7"><span class="guess">Algeria <span>0.59</span></span></li>
+      <li style="--n:8"><img src="pieces/8.png" width="205" height="154" alt="Piece 8"><span class="guess">Nigeria <span>0.74</span></span></li>
+      <li style="--n:9"><img src="pieces/9.png" width="205" height="154" alt="Piece 9"><span class="guess">Malta <span>0.74</span></span></li>
+      <li style="--n:10"><img src="pieces/10.png" width="205" height="154" alt="Piece 10"><span class="guess">Canada <span>0.38</span></span></li>
+      <li style="--n:11"><img src="pieces/11.png" width="205" height="154" alt="Piece 11"><span class="guess">Libya <span>0.41</span></span></li>
+      <li style="--n:12"><img src="pieces/12.png" width="205" height="154" alt="Piece 12"><span class="guess">Japan <span>0.03</span></span></li>
+      <li style="--n:13"><img src="pieces/13.png" width="205" height="154" alt="Piece 13"><span class="guess">Nigeria <span>0.93</span></span></li>
+      <li style="--n:14"><img src="pieces/14.png" width="205" height="154" alt="Piece 14"><span class="guess">Saudi Arabia <span>0.86</span></span></li>
+      <li style="--n:15"><img src="pieces/15.png" width="205" height="154" alt="Piece 15"><span class="guess">Türkiye <span>0.19</span></span></li>
+    </ol>
+    <figcaption>The pieces one team saw, each with the agent's guess and how sure it was. <a href="#example">What did the manager answer?</a></figcaption>
+  </figure>
+</header>
+
+<article>
+<p>If you build with AI agents, you have probably already faced the choice. When the answers are not good enough, do you add more agents, or put a stronger model in charge of the final decision? NTT Research recently reported that adding agents helps only up to a point, and that the decision-maker matters a great deal. We tested both claims on a task we could score exactly, and then asked a third question: can a fast, cheap decision model help the manager decide?</p>
+
+<p>The NTT Research article <a href="https://ntt-research.com/can-adding-more-ai-agents-reduce-performance/">Can Adding More AI Agents Reduce Performance?</a> describes a Flag Game: agents each see a small crop of a hidden national flag and must name the country. Group performance "peaked at 16 agents, then flattened at 32 and declined beyond it." The article adds: "Deploying 128 agents produced no performance benefit over far smaller groups." It also reports that a stronger model as the decision-maker improved the result. The companion paper, <a href="https://arxiv.org/abs/2603.24676">When Is Collective Intelligence a Lottery?</a>, gives the theory. Neither publishes the prompts, the flag set, the crop rules or the raw results, so what follows is an independent experiment prompted by that work, not a reproduction.</p>
+
+<p>We built it the way we think agent-built work should be checked: every change proves itself, deterministic checks run first, and an independent judge compares the work with the task. Part of the answer is about which kind of judge to trust.</p>
+
+<h2 class="display">We built the test so that a mistake would show</h2>
+<p>Forty flags of United Nations member states, each cut into crops of 20% of its width and height, at two different sets of crop positions: 80 trials in all. Each observer, GPT-5.4 Mini, saw one crop and reported a country code, a confidence and up to three pieces of evidence. A manager, GPT-5.4, read the reports and named the flag. Teams ranged from 4 to 128 agents, counting the manager. Every language model ran through Cursor's command-line agent in the same isolated way, one call at a time, with no cache. Every rule, from the crop generator to the statistics, was written down and committed before the run it governed. Two later additions, a calibration measure and a cross-validated cutoff, were written down before they were computed and are named as later below. Every step was checked by scripts that did not produce the data. The final run made 5,520 calls.</p>
+<p>Each percentage is the share of the 80 trials answered correctly. The ranges in brackets show how far each result could move by chance: when a range includes zero, the difference may not be real.</p>
+
+<p class="part">Team size and evidence</p>
+<h2 class="display">1. A bigger team helped, but only up to 32 agents</h2>
+<p>With 4 agents the manager was right on 29 of 80 trials, 36.3%. With 16 it was right on 59, 73.8%, and with 32 on 68, 85.0%. The step from 16 to 32 was the smaller one, 11.3 points (1.3 to 22.5). Past 32 we saw no gain: on 12 trials run at every size, teams of 64 and 128 were each right on 10, against 11 for the team of 32. Those 12 trials are too few to say whether larger teams do worse. The curve in NTT Research's Flag Game article peaked at 16 and ours kept rising to 32, under a setup we chose ourselves, so the two do not contradict each other. Both say the same thing: past some size, more agents stop paying.</p>
+
+<figure class="wide">
+<img src="panel-team-size.png" width="1810" height="930" alt="Line chart. With the observers' evidence, the manager is right on 36.3% of trials with 4 agents, 73.8% with 16 and 85.0% with 32. With codes and confidence only: 30.0%, 45.0% and 57.5%. Teams of 64 and 128, run on 12 trials only, were each right on 10 of 12.">
+<figcaption><b>Accuracy by team size, with and without the observers' evidence.</b> The manager is right more often as the team grows to 32. Without the written evidence, the same team scores far lower at every size from 16 up.</figcaption>
+</figure>
+
+<h2 class="display">2. The manager's reading of the reasons did most of the work, not the vote count</h2>
+<p>We gave every manager a twin that saw the same reports with each observer's country code and confidence, but none of the evidence. With 16 agents the twin was 28.8 points lower (18.8 to 40.0), and with 32 it was 27.5 points lower. With 4 agents the gap was 6.3 points, too small to tell from chance. A single observer was right only 15.2% of the time. A large team works because the manager can weigh fifteen or thirty-one partial descriptions of the same flag, and that only helps if the descriptions reach the manager.</p>
+
+<figure class="wide" id="example">
+<img src="panel-italy.png" width="1810" height="930" alt="The flag of Italy with the crop boxes of 15 observers. Six observers are shown with what they saw and answered: Libya, Algeria, Peru, Malta, Türkiye and Japan. Reading all 15 reports with their evidence, the manager answered Italy at 0.97, right. Given only the codes and confidences, it answered Libya at 0.69, wrong.">
+<figcaption><b>One trial of a team of 16, seen from inside.</b> None of the 15 observers named Italy, and the most common answer was Libya, whose flag was plain green until 2011. Reading the evidence, the manager answered Italy; given only the codes, it answered Libya. We chose this trial to show the effect; for teams of 16, the evidence was worth 28.8 points across all 80 trials.</figcaption>
+</figure>
+
+<h2 class="display">3. Better observers mattered, and mixing models added nothing more</h2>
+<p>At a team of 8, seven Claude Sonnet 5.5 observers were right on 53 of 80 trials, against 42 for seven GPT-5.4 Mini observers: 13.8 points better (5.0 to 22.5). A mixed team of four and three was also right on 53. In NTT Research's Flag Game study, a mixed team did best. In our setup a mixed team did as well as the stronger model alone, and no better.</p>
+
+<p class="part">Who decides</p>
+<h2 class="display">4. A language model manager beat the vote by a wide margin</h2>
+<p>We froze the reports of 15 Mini observers per trial and gave the identical reports to a plurality vote and two language model managers, each required to choose from the countries the observers named, or "other". A plurality vote was right on 22 of 80 trials, 27.5%; it tied, and so gave no answer, on 22 more. GPT-5.4 was right on 54, 67.5%, and Claude Opus 5.5 on 59, 73.8%: 40.0 and 46.3 points above the vote. (Free to name any country, the same GPT-5.4 manager was right on 59, as in finding 1.) The difference between the two managers, 6.3 points, was too small to tell from chance. The true flag was among the candidates on only 61 of 80 trials, so the best manager was close to the ceiling the reports allowed.</p>
+
+<h3 class="display">Because a router lets Jev answer some trials on its own, we first measured how it does alone</h3>
+<p>Jev is TypeSafe's decision model, which answers a typed question with a probability for each option instead of writing text. Pinned to version jev-1.13.0, it was right on 32 of 80 trials, 40.0%: better than the vote by 12.5 points, but well below either language model. It answered in 0.08 seconds, against 20.5 seconds for GPT-5.4 and 11.2 for Opus through the agent, and a call cost about $0.00006 against $0.04 and $0.09.</p>
+
+<figure class="wide">
+<img src="panel-deciders.png" width="1810" height="930" alt="Bar chart on the same frozen reports. Claude Opus 5.5 manager 73.8%, 59 of 80. GPT-5.4 manager 67.5%, 54 of 80. Plurality vote 27.5%, 22 of 80, and 22 more trials tied. A dashed line at 61 of 80 marks the most any decider could get right.">
+<figcaption><b>The same frozen reports, three deciders.</b> A plurality vote, GPT-5.4 and Opus on identical reports, each choosing from the countries the observers named. The dashed line marks the most any of them could get right: on 19 trials, no observer named the true flag.</figcaption>
+</figure>
+
+<p class="part">Jev as a helper</p>
+<h2 class="display">5. Beside the managers, Jev rarely made them better</h2>
+<p>Then we tested what the question was really about: Jev as a helper. The managers ran again on the same 80 frozen report sets, alone as a control and in each helper role, and every helped answer was compared with the same manager's unhelped one.</p>
+
+<h3 class="display">Advisor</h3>
+<p>The manager saw Jev's three most likely answers with their probabilities. Accuracy fell in all four cells, by 1.3 to 5.0 points. No single drop is beyond chance, but all four went the same way, and in each cell more answers went from right to wrong than from wrong to right. With codes only, GPT-5.4's average confidence rose from 0.67 to 0.84 while its share of correct answers fell from 0.43 to 0.38. The advice made it surer and less right. Polished output invites more trust than it has earned, and a ranked list with probabilities is about as polished as output gets.</p>
+
+<h3 class="display">Evidence grader</h3>
+<p>Jev rated how well each observer's evidence supported the code it named, and the manager saw the ratings. For GPT-5.4 this was the one positive result, 3.8 points (0.0 to 8.8), turning 3 answers from wrong to right and none the other way. For Opus it was 2.5 points lower.</p>
+
+<h3 class="display">Arbiter</h3>
+<p>When the two managers disagreed, Jev picked the answer it rated more likely. That did worse than always taking Opus, by 6.3 points (-12.5 to 0.0), at the edge of chance.</p>
+
+<p>Run again alone, the managers gave the same answer as in the final run on 63 of 80 trials for GPT-5.4 and 76 of 80 for Opus, so model drift between runs does not explain these results.</p>
+
+<h2 class="display">6. Jev earned its place as a router</h2>
+<p>In this role Jev answers on its own when it is sure enough, and passes every other trial to the manager. We fixed the cutoff in advance on 12 separate trials, which set it at 0.95: Jev then answered 11 of 80 trials alone, and accuracy did not change for either manager. Because that cutoff rested on very few trials, we later also learned it by cross-validation, leaving each flag out in turn. Every one of the 40 folds chose 0.9. At that cutoff Jev answered 15 of 80 trials alone, and both managers stayed exactly as accurate: 53 of 80 for GPT-5.4 and 59 of 80 for Opus. That is 15 of every 80 manager calls saved at no cost in accuracy, when the manager has the evidence. With codes only, no safe cutoff was found for GPT-5.4, and for Opus the cross-validated router cost 1.3 points (-3.8 to 0.0).</p>
+
+<figure class="wide">
+<img src="panel-router.png" width="1810" height="930" alt="Stacked bars of the 80 trials by who answered them. GPT-5.4 alone: 80 manager calls, 53 of 80 right. GPT-5.4 with Jev routing: 65 manager calls and 15 by Jev, 53 of 80 right. Claude Opus 5.5 alone: 80 manager calls, 59 right. With Jev routing: 65 and 15, 59 right.">
+<figcaption><b>Jev as a router.</b> Jev answers only the trials it is sure of and passes the rest to the manager. Each manager gets the same number right with 15 fewer of its own calls.</figcaption>
+</figure>
+
+<p class="part">How we checked</p>
+<h2 class="display">The numbers are only worth what the checks behind them are worth</h2>
+<p>Each step of the work ended with an audit by scripts that did not produce the data, and any serious finding stopped the next step until a person decided. A second implementation of every analysis, written in another language, reproduced every count and interval exactly. When two calls lost their network and were recorded as timeouts, we fixed the cause, wrote down how to handle them, and only then sent them again; both answered wrongly, and no count changed. Of 4,192 observer crops, 635 are pixel-identical to a crop of another flag, mostly single-colour patches that no observer could tell apart; every condition shares them.</p>
+
+<p class="aside">None of this says decision models lose to language models in general. Our reports were free text, which a language model reads well: evidence lifted GPT-5.4 by 20.0 points and Opus by 31.3, but Jev by only 5.0. A task with structured inputs could turn the result around. This is an independent experiment prompted by NTT Research's Flag Game article, not a reproduction, and every result holds only for this task, our 40 flags, our protocol, the Cursor agent harness and the model versions it served between 2026-10-23 and 2026-11-02.</p>
+
+<section class="close" aria-label="Conclusion">
+  <p class="claim display">Adding agents pays until it stops; after that, what pays is a manager that reads the evidence, and a decision model that takes only the cases it is sure of.</p>
+  <p class="line">Give the manager the reasons, and give the decision model only what it is sure of.</p>
+  <dl class="takeaways">
+    <dt>Team size</dt><dd>Accuracy rose from 36.3% with 4 agents to 85.0% with 32, and larger teams added nothing.</dd>
+    <dt>Evidence</dt><dd>Without the observers' reasons, the same manager lost about 28 points.</dd>
+    <dt>Decision-maker</dt><dd>A language model manager beat a plurality vote by 40 points or more on identical reports.</dd>
+    <dt>Advice</dt><dd>Advice from the weaker decision model lowered accuracy in every cell, and made GPT-5.4 surer and less right.</dd>
+    <dt>Routing</dt><dd>With a cutoff learned on held-out data, the decision model took 15 of 80 cases off the manager's desk at no cost in accuracy, when the manager had the evidence.</dd>
+  </dl>
+</section>
+
+<p class="thanks">Thanks to Bassam Kazemi, whose thinking on how agent work should prove itself shaped this experiment, and to John Geiger, whose writing on polished output named one of its results.</p>
+</article>
+
+<footer><a href="/">Luis Salas Gonzales</a></footer>
+</body>
+</html>
