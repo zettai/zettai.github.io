@@ -44,8 +44,8 @@
 </script>
 <style>
   @font-face { font-family: "Familjen Grotesk"; font-weight: 600; font-display: swap; src: url(familjen-grotesk-600.woff2) format("woff2"); }
-  :root { color-scheme: light dark; --fg: #1d232b; --muted: #5b6472; --bg: #f7f8fa; --rule: #dfe3ea; --accent: #1a4fa0; --tile: #e6edf8; }
-  @media (prefers-color-scheme: dark) { :root { --fg: #e6e9ee; --muted: #9aa3b1; --bg: #12161c; --rule: #2a313b; --accent: #8ab4f8; --tile: #1c2633; } }
+  :root { color-scheme: light dark; --fg: #1d232b; --muted: #5b6472; --bg: #f7f8fa; --rule: #dfe3ea; --accent: #1a4fa0; --tile: #e6edf8; --card: #fff; }
+  @media (prefers-color-scheme: dark) { :root { --fg: #e6e9ee; --muted: #9aa3b1; --bg: #12161c; --rule: #2a313b; --accent: #8ab4f8; --tile: #1c2633; --card: #181d24; } }
   body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
   main { max-width: 40rem; margin: 0 auto; padding: 3rem 1rem 4rem; }
   h1, h2 { font-family: "Familjen Grotesk", system-ui, sans-serif; font-weight: 600; letter-spacing: -0.01em; }
@@ -63,6 +63,23 @@
   .reach a { display: inline-block; padding: .2rem .8rem; border: 1px solid var(--rule); border-radius: 999px; font-size: .9rem; text-decoration: none; }
   .reach a:hover { border-color: var(--accent); }
   .lede { font-size: 1.15rem; line-height: 1.55; margin: 0; }
+  /* Featured: a pinned article card, the whole card is the link */
+  .pin { position: relative; margin: 0; border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; background: var(--card); transition: border-color .15s; }
+  .pin:hover { border-color: var(--accent); }
+  .pin:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .pin img { display: block; width: 100%; height: auto; aspect-ratio: 1200 / 627; border-bottom: 1px solid var(--rule); }
+  .pin-body { padding: 1rem 1.25rem 1.2rem; }
+  .pin-meta { display: flex; align-items: center; gap: .4rem; margin: 0 0 .35rem; color: var(--muted); font-size: .85rem; }
+  .pin-flag { display: inline-flex; align-items: center; gap: .3rem; color: var(--accent); font-weight: 600; }
+  .pin-flag::before { content: ""; width: .95rem; height: .95rem; background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 17v5'/><path d='M9 3h6l-1 6 4 4v2H6v-2l4-4z'/></svg>") center / contain no-repeat;
+    mask: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 17v5'/><path d='M9 3h6l-1 6 4 4v2H6v-2l4-4z'/></svg>") center / contain no-repeat; }
+  .pin h3 { font-family: "Familjen Grotesk", system-ui, sans-serif; font-weight: 600; font-size: 1.3rem; line-height: 1.25; letter-spacing: -0.01em; margin: 0 0 .35rem; }
+  .pin h3 a { color: var(--fg); text-decoration: none; }
+  .pin h3 a::after { content: ""; position: absolute; inset: 0; }
+  .pin h3 a:focus-visible { outline: none; }
+  .pin:hover h3 a { color: var(--accent); }
+  .pin-body p:last-child { margin: 0; color: var(--muted); }
   /* Work and Volunteer: one line per sector, icon tiles joined by a rail */
   .rail { list-style: none; padding: 0; margin: 0; }
   .rail li { position: relative; margin: 0; padding: 0 0 1.5rem 3.25rem;
@@ -114,6 +131,16 @@
 
   <h2>About</h2>
   <p><!-- public:bio-long -->Luis Salas Gonzales (Luis Salas) is Associate Director of Digital Engineering at Launch by NTT DATA, based in Everett, Washington. He has worked in software for over 15 years, the last 12 delivering for US clients in energy, finance, healthcare, travel, retail, education and biotech, progressing from individual contributor to Associate Director inside one organization across eleven years and nine client engagements. His recent work applies agentic workflows and multi-agent tooling to large legacy estates, and he holds the OpenAI Forward Deployed Expert bootcamp credential, the Cursor Partner FDE Bootcamp accreditation and ten OpenAI Partner certifications (2026). He studied psychology at the Pontificia Universidad Católica del Perú.<!-- /public:bio-long --></p>
+
+  <h2>Featured</h2>
+  <article class="pin">
+    <img src="articles/more-agents-or-a-better-manager/linkedin-preview.png" width="1200" height="627" alt="" loading="lazy" decoding="async">
+    <div class="pin-body">
+      <p class="pin-meta"><span class="pin-flag">Pinned</span><span aria-hidden="true">·</span>Article<span aria-hidden="true">·</span><time datetime="2026-11-02">November 2, 2026</time></p>
+      <h3><a href="articles/more-agents-or-a-better-manager/">More agents or a better manager?</a></h3>
+      <p>Fifteen AI agents each saw one piece of a hidden flag and named a country. Then one manager had to decide.</p>
+    </div>
+  </article>
 
   <h2>Work</h2>
   <ul class="rail"><!-- public:work -->
