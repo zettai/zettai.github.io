@@ -8,8 +8,11 @@ committed here is on the web unless `_config.yml` excludes it.
 
 One hand-written `index.html` with inline CSS, no framework and no build
 step, plus images, icons, `robots.txt`, `sitemap.xml` and two search-engine
-verification files. Articles written in `~/code/ror` are published here as
-hand-written HTML pages after they are published on the internal wiki.
+verification files. Articles are published as hand-written HTML pages under
+`articles/<slug>/`. Most start in personal repos and live only here: drafts
+stay private in `~/code/career` (`docs/workflows/write-article.md`) until the
+owner says yes. A few are written in `~/code/ror` and go on the internal wiki
+first.
 
 ## Setup
 
