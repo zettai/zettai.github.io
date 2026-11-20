@@ -179,9 +179,9 @@
 </header>
 
 <article>
-<p>If you work on a design system, you have probably already heard the claim: write the specs well enough and a coding agent will build the front end from them. Most experienced developers would add a second half. The specs are needed, but whoever builds the screen also has to look at it. We tested both halves on a task we could score exactly, to see how much each one is worth.</p>
+<p>If you work on a design system, you may be asking how much of a front end a coding agent can build from its specs. Building a screen well usually takes two halves: the specs, and a look at what was built. We tested both halves on a task we could score exactly, to see how much each one is worth.</p>
 
-<p>The design system is <a href="https://github.com/figma/sds">Figma's Simple Design System</a>, in its open React version. It ships with ten rules files written for coding agents and a set of example screens. That is the spec-driven setup many teams are building towards, so we started from it and added two automatic checks of our own.</p>
+<p>The design system is <a href="https://github.com/figma/sds">Figma's Simple Design System</a>, in its open React version. It ships with ten rules files written for coding agents and a set of example screens. That is a well-made spec-driven setup, so we started from it and added two automatic checks of our own.</p>
 
 <p>We ran it the way we ran <a href="/articles/more-agents-or-a-better-manager/">More agents or a better manager?</a>: every rule was written down and committed before the run it governed, deterministic checks ran first, and the scoring was done by scripts that did not produce the results. This time the results also went through a blind human inspection at the end.</p>
 
@@ -219,9 +219,9 @@
 <h2 class="display">5. A check stopped the agent from deleting the page</h2>
 <p>We did not plan for this failure. The app already had a page with content. The prompt did not say to keep it, and the agent often removed it to show the new screen: in the setup with the rules alone, in 12 of 12 runs. The setups started from pages of different sizes, so we cannot say how much of that is down to the rules. A check that blocks deleted content stopped it. It blocked 14 of 24 runs, each put the page back on the first try, and none finished with content missing.</p>
 
-<h2 class="display">6. None of it fixed the look</h2>
+<h2 class="display">6. The look needed more than the specs</h2>
 <p>With the rules loaded, sizes, weights and colours were all right in 45 of 48 runs. Position was not: 19 of 48 matched. The agent had built each screen from a picture and never saw its own result in a browser, which is what the round above went on to test.</p>
-<p>We also built the usage page as a frame in Figma, in a copy of <a href="https://www.figma.com/community/file/1380235722331273046/simple-design-system">the design system's public Figma file</a>, and gave the agent a text description of the frame in place of the picture, 4 runs each way. The description was read once from Figma with <a href="https://github.com/GLips/Figma-Context-MCP">an open-source tool</a> and replayed, so this says nothing about Figma's own server. Layout came out closer to the frame from the description: of 23 texts, 19, 12, 19 and 19 were within 16 px of Figma's position, against 0, 8, 2 and 11 from the picture. The frame and the React code of the same design system do not agree on layout, and measured against the code the picture runs were the closer ones.</p>
+<p>We also built the usage page as a frame in Figma, in a copy of <a href="https://www.figma.com/community/file/1380235722331273046/simple-design-system">the design system's public Figma file</a>, and gave the agent a text description of the frame in place of the picture, 4 runs each way. The description was read once from Figma with <a href="https://github.com/GLips/Figma-Context-MCP">an open-source tool</a> and replayed, so this says nothing about Figma's own server. Layout came out closer to the frame from the description: of 23 texts, 19, 12, 19 and 19 were within 16 px of Figma's position, against 0, 8, 2 and 11 from the picture. In this design system, the Figma frame and the React code differ in layout, and measured against the code the picture runs were the closer ones.</p>
 
 <p class="part">How we checked</p>
 <h2 class="display">The scores come from scripts, and then from an inspection that did not know the groups</h2>
@@ -231,7 +231,7 @@
 
 <section class="close" aria-label="Conclusion">
   <p class="claim display">Specs tell the agent what to write; it still has to see what it built.</p>
-  <p class="line">Experienced developers know this already. This is a reminder to build it into the design-to-code flow.</p>
+  <p class="line">Anyone who builds screens knows this already. This is a reminder, with numbers, to build it into the design-to-code flow.</p>
   <dl class="takeaways">
     <dt>Rules</dt><dd>With the written rules loaded, 0 of 48 runs typed in a raw value; without them, 15 of 24 did.</dd>
     <dt>Checks</dt><dd>A check for deleted content blocked 14 of 24 runs, and every one put the page back.</dd>
@@ -241,7 +241,7 @@
   </dl>
 </section>
 
-<p class="thanks">Thanks to the designers who keep doing their best work. The tools are changing, and we see them bringing design and code closer together.</p>
+<p class="thanks">Thanks to the designers whose systems make work like this possible. The tools are changing, and we see them bringing design and code closer together.</p>
 </article>
 
 <footer><a href="/">Luis Salas Gonzales</a></footer>
