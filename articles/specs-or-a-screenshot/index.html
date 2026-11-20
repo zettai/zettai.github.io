@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Specs or a screenshot? | Luis Salas Gonzales</title>
+<meta name="description" content="A coding agent built screens from a design system's rules, examples and checks: 4 of 12 matched the design. With a screenshot of its own work, 12 of 12.">
+<link rel="canonical" href="https://zettai.github.io/articles/specs-or-a-screenshot/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/familjen-grotesk-600.woff2" as="font" type="font/woff2" crossorigin>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Luis Salas Gonzales">
+<meta property="og:title" content="Specs or a screenshot?">
+<meta property="og:description" content="From specs alone, 4 of 12 screens matched the design. With a screenshot too, 12 of 12.">
+<meta property="og:url" content="https://zettai.github.io/articles/specs-or-a-screenshot/">
+<meta property="og:image" content="https://zettai.github.io/articles/specs-or-a-screenshot/linkedin-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="Twelve small screens built by a coding agent, beside the title Specs or a screenshot?">
+<meta property="article:published_time" content="2026-11-19">
+<meta property="article:author" content="Luis Salas Gonzales">
+<meta name="author" content="Luis Salas Gonzales">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Specs or a screenshot?">
+<meta name="twitter:description" content="From specs alone, 4 of 12 screens matched the design. With a screenshot too, 12 of 12.">
+<meta name="twitter:image" content="https://zettai.github.io/articles/specs-or-a-screenshot/linkedin-preview.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Specs or a screenshot?",
+  "datePublished": "2026-11-19",
+  "author": { "@type": "Person", "name": "Luis Salas Gonzales", "url": "https://zettai.github.io/" },
+  "image": "https://zettai.github.io/articles/specs-or-a-screenshot/linkedin-preview.png",
+  "mainEntityOfPage": "https://zettai.github.io/articles/specs-or-a-screenshot/"
+}
+</script>
+<style>
+  @font-face { font-family: "Familjen Grotesk"; font-weight: 600; font-display: swap; src: url(/familjen-grotesk-600.woff2) format("woff2"); }
+  :root { color-scheme: light dark; --fg: #1d232b; --muted: #5b6472; --bg: #f7f8fa; --rule: #dfe3ea; --accent: #1a4fa0; --tile: #e6edf8; }
+  @media (prefers-color-scheme: dark) { :root { --fg: #e6e9ee; --muted: #9aa3b1; --bg: #12161c; --rule: #2a313b; --accent: #8ab4f8; --tile: #1c2633; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 18px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  a { color: var(--accent); text-underline-offset: .15em; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  .display { font-family: "Familjen Grotesk", system-ui, sans-serif; font-weight: 600; letter-spacing: -0.015em; }
+
+  .site { max-width: 64rem; margin: 0 auto; padding: 1.5rem 1.25rem 0; font-size: .95rem; }
+
+  /* Hero: the puzzle the agents faced, fifteen pieces and fifteen guesses. */
+  .hero { max-width: 64rem; margin: 0 auto; padding: 2.5rem 1.25rem 3.5rem; display: grid; grid-template-columns: 1fr 1.05fr; gap: 3.5rem; align-items: center; }
+  .hero h1 { font-size: clamp(2.6rem, 5.6vw, 4.1rem); line-height: 1.02; margin: 0 0 1.25rem; }
+  .dek { font-size: 1.2rem; line-height: 1.5; color: var(--muted); margin: 0 0 1.25rem; max-width: 26rem; }
+  .byline { color: var(--muted); margin: 0; font-size: .95rem; }
+  .pieces { margin: 0; }
+  .pieces ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: .7rem .55rem; }
+  .pieces li { margin: 0; }
+  .pieces img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border-radius: 6px; box-shadow: 0 0 0 1px var(--rule); }
+  .guess { display: block; font-size: .78rem; line-height: 1.25; margin-top: .3rem; }
+  .guess span { display: block; color: var(--muted); }
+  .pieces figcaption { color: var(--muted); font-size: .9rem; margin-top: 1rem; }
+  @media (prefers-reduced-motion: no-preference) {
+    .pieces li { animation: arrive .5s ease-out both; animation-delay: calc(var(--n) * 70ms); }
+    @keyframes arrive { from { opacity: 0; transform: translateY(6px); } }
+  }
+
+  /* Reading column, with figures allowed wider than the text. */
+  article { max-width: 38rem; margin: 0 auto; padding: 0 1.25rem 4rem; }
+  article > p, article li { margin: 0 0 1.1rem; }
+  article h2 { font-size: 1.55rem; line-height: 1.2; margin: 3.25rem 0 .9rem; }
+  article h3 { font-size: 1.15rem; line-height: 1.3; margin: 2rem 0 .5rem; }
+  .part { color: var(--muted); font-size: 1rem; margin: 4rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+  .part + h2 { margin-top: 1rem; }
+  figure.wide { width: min(58rem, calc(100vw - 2.5rem)); margin: 2.5rem 0 2.5rem 50%; transform: translateX(-50%); }
+  figure.wide img { display: block; width: 100%; height: auto; border-radius: 14px; }
+  figure.wide figcaption { max-width: 38rem; margin: .9rem auto 0; color: var(--muted); font-size: .95rem; line-height: 1.5; }
+  figure.wide figcaption b { color: var(--fg); font-weight: 600; }
+  .aside { font-style: italic; color: var(--muted); }
+  .close { margin: 3.5rem 0 1.5rem; }
+  .close .claim { font-size: 1.65rem; line-height: 1.25; margin: 0 0 1rem; }
+  .close .line { font-style: italic; color: var(--muted); margin: 0; }
+  dl.takeaways { margin: 2rem 0 0; display: grid; grid-template-columns: 9rem 1fr; gap: .75rem 1.25rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+  dl.takeaways dt { font-weight: 600; }
+  dl.takeaways dd { margin: 0; }
+  .thanks { margin: 3rem 0 0; font-style: italic; color: var(--muted); font-size: .95rem; }
+  footer { max-width: 38rem; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .95rem; }
+
+  @media (max-width: 52rem) {
+    .hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 1.5rem; }
+    .dek { max-width: none; }
+  }
+  @media (max-width: 30rem) {
+    body { font-size: 17px; }
+    .pieces ol { gap: .5rem .35rem; }
+    .pieces img { border-radius: 4px; }
+    .guess { font-size: .64rem; }
+    dl.takeaways { grid-template-columns: 1fr; gap: .2rem; }
+    dl.takeaways dd { margin-bottom: .75rem; }
+  }
+
+  /* This article: the hero shows the 36 results in three groups of 12, with the blind verdict. */
+  .pieces ol { grid-template-columns: repeat(6, 1fr); gap: .45rem .4rem; }
+  .pieces .group { font-size: .82rem; font-weight: 600; margin: .9rem 0 .4rem; }
+  .pieces .group:first-child { margin-top: 0; }
+  .pieces img { border-radius: 4px; }
+  .guess { font-size: .7rem; }
+  .guess.no { color: var(--muted); }
+  figure.stack { width: min(46rem, calc(100vw - 2.5rem)); }
+  figure.stack img { border-radius: 8px; box-shadow: 0 0 0 1px var(--rule); }
+  figure.stack .label { margin: 1.5rem 0 .5rem; font-weight: 600; font-size: .95rem; }
+  figure.stack .label:first-child { margin-top: 0; }
+  code { font-size: .9em; background: var(--tile); padding: .05em .3em; border-radius: 4px; }
+  .yours { border: 1px dashed var(--muted); border-radius: 8px; padding: .9rem 1rem; color: var(--muted); font-size: .95rem; }
+  .close .claim.yours { font-size: 1.1rem; }
+  @media (max-width: 30rem) { .guess { font-size: .6rem; } }
+  /* One picture holds all 36 results, so the grid cannot half-load. */
+  .shot { display: block; width: 100%; aspect-ratio: 4 / 3; border-radius: 4px; box-shadow: 0 0 0 1px var(--rule); background: #fff url(results.jpg) 0 0 / 600% 600% no-repeat; }
+</style>
+</head>
+<body>
+<p class="site"><a href="/">Luis Salas Gonzales</a></p>
+
+<header class="hero">
+  <div>
+    <h1 class="display">Specs or a screenshot?</h1>
+    <p class="dek">A coding agent built 36 screens from a design system's rules, examples and checks. Blind human inspection accepted 17 of them.</p>
+    <p class="byline"><time datetime="2026-11-19">November 19, 2026</time></p>
+  </div>
+  <figure class="pieces">
+    <p class="group">Rules, examples and checks: 2 of 12 accepted</p>
+    <ol>
+      <li style="--n:1"><span class="shot" role="img" aria-label="Result 1, team table" style="background-position:0% 0%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:2"><span class="shot" role="img" aria-label="Result 2, team table" style="background-position:20% 0%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:3"><span class="shot" role="img" aria-label="Result 3, team table" style="background-position:40% 0%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:4"><span class="shot" role="img" aria-label="Result 4, team table" style="background-position:60% 0%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:5"><span class="shot" role="img" aria-label="Result 5, checkout" style="background-position:80% 0%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:6"><span class="shot" role="img" aria-label="Result 6, checkout" style="background-position:100% 0%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:7"><span class="shot" role="img" aria-label="Result 7, checkout" style="background-position:0% 20%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:8"><span class="shot" role="img" aria-label="Result 8, checkout" style="background-position:20% 20%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:9"><span class="shot" role="img" aria-label="Result 9, usage page" style="background-position:40% 20%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:10"><span class="shot" role="img" aria-label="Result 10, usage page" style="background-position:60% 20%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:11"><span class="shot" role="img" aria-label="Result 11, usage page" style="background-position:80% 20%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:12"><span class="shot" role="img" aria-label="Result 12, usage page" style="background-position:100% 20%"></span><span class="guess no">Rejected</span></li>
+    </ol>
+    <p class="group">The same, and told to compare: 3 of 12 accepted</p>
+    <ol>
+      <li style="--n:13"><span class="shot" role="img" aria-label="Result 13, team table" style="background-position:0% 40%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:14"><span class="shot" role="img" aria-label="Result 14, team table" style="background-position:20% 40%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:15"><span class="shot" role="img" aria-label="Result 15, team table" style="background-position:40% 40%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:16"><span class="shot" role="img" aria-label="Result 16, team table" style="background-position:60% 40%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:17"><span class="shot" role="img" aria-label="Result 17, checkout" style="background-position:80% 40%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:18"><span class="shot" role="img" aria-label="Result 18, checkout" style="background-position:100% 40%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:19"><span class="shot" role="img" aria-label="Result 19, checkout" style="background-position:0% 60%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:20"><span class="shot" role="img" aria-label="Result 20, checkout" style="background-position:20% 60%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:21"><span class="shot" role="img" aria-label="Result 21, usage page" style="background-position:40% 60%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:22"><span class="shot" role="img" aria-label="Result 22, usage page" style="background-position:60% 60%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:23"><span class="shot" role="img" aria-label="Result 23, usage page" style="background-position:80% 60%"></span><span class="guess no">Rejected</span></li>
+      <li style="--n:24"><span class="shot" role="img" aria-label="Result 24, usage page" style="background-position:100% 60%"></span><span class="guess no">Rejected</span></li>
+    </ol>
+    <p class="group">The same, and able to screenshot its own result: 12 of 12 accepted</p>
+    <ol>
+      <li style="--n:25"><span class="shot" role="img" aria-label="Result 25, team table" style="background-position:0% 80%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:26"><span class="shot" role="img" aria-label="Result 26, team table" style="background-position:20% 80%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:27"><span class="shot" role="img" aria-label="Result 27, team table" style="background-position:40% 80%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:28"><span class="shot" role="img" aria-label="Result 28, team table" style="background-position:60% 80%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:29"><span class="shot" role="img" aria-label="Result 29, checkout" style="background-position:80% 80%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:30"><span class="shot" role="img" aria-label="Result 30, checkout" style="background-position:100% 80%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:31"><span class="shot" role="img" aria-label="Result 31, checkout" style="background-position:0% 100%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:32"><span class="shot" role="img" aria-label="Result 32, checkout" style="background-position:20% 100%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:33"><span class="shot" role="img" aria-label="Result 33, usage page" style="background-position:40% 100%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:34"><span class="shot" role="img" aria-label="Result 34, usage page" style="background-position:60% 100%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:35"><span class="shot" role="img" aria-label="Result 35, usage page" style="background-position:80% 100%"></span><span class="guess">Accepted</span></li>
+      <li style="--n:36"><span class="shot" role="img" aria-label="Result 36, usage page" style="background-position:100% 100%"></span><span class="guess">Accepted</span></li>
+    </ol>
+    <figcaption>The 36 results, each shown from the top at the same scale, with the verdict of a blind human inspection against the target.</figcaption>
+  </figure>
+</header>
+
+<article>
+<p>If you work on a design system, you have probably already heard the claim: write the specs well enough and a coding agent will build the front end from them. Most experienced developers would add a second half. The specs are needed, but whoever builds the screen also has to look at it. We tested both halves on a task we could score exactly, to see how much each one is worth.</p>
+
+<p>The design system is <a href="https://github.com/figma/sds">Figma's Simple Design System</a>, in its open React version. It ships with ten rules files written for coding agents and a set of example screens. That is the spec-driven setup many teams are building towards, so we started from it and added two automatic checks of our own.</p>
+
+<p>We ran it the way we ran <a href="/articles/more-agents-or-a-better-manager/">More agents or a better manager?</a>: every rule was written down and committed before the run it governed, deterministic checks ran first, and the scoring was done by scripts that did not produce the results. This time the results also went through a blind human inspection at the end.</p>
+
+<h2 class="display">We built the test so that only one thing changed</h2>
+<p>The agent was <a href="https://claude.com/claude-code">Claude Code</a> run from scripts, with the model Opus 5.5 at medium effort and none of our own settings or memory. Its task was to build one screen from a picture of it and show it in the app. There were three screens it had never seen: a team table, a checkout and a usage page, each 1,200 px wide.</p>
+<p>Three groups made 12 runs each, 4 per screen, 36 in all. Every group had the written rules, the example screens, both checks and the target picture. The first group had nothing more. The second had one more sentence in its prompt: before you finish, compare your component with the target. The third had that sentence and a command that takes a screenshot of the screen the agent has just built, which it can then open and look at.</p>
+<p>A result counts as a match when almost every text of a reference build is present, at least nine in ten of them have the same size, weight and colour, at least four in five are within 16 px of the same place, and the screen's height is within 10%.</p>
+
+<p class="part">Seeing the result</p>
+<h2 class="display">1. With a screenshot of its own work, the agent matched the target every time</h2>
+<p>All 12 runs with the screenshot command matched. In every one, each text sat within 3 px of its place in the reference and the screen had the reference's height. In the first group, 4 of 12 matched. All 4 were the checkout; the team table and the usage page matched in none of their 8 runs. The same setup had matched 5 of 12 in our earlier round, 3 on the checkout and 2 on the usage page.</p>
+<p>The agent took 2 to 4 screenshots per run, 33 in all, opened each one and edited between them. Against the group that was only told to compare, the command added about 26 seconds and $0.11 to an average run.</p>
+
+<figure class="wide stack">
+  <p class="label">The target</p>
+  <img src="usage-target.png" width="1200" height="783" alt="The target: a usage page with three wide cards across the top, a list of limits with coloured badges at the right edge, and two buttons at the bottom right.">
+  <p class="label">Built without a way to see the result</p>
+  <img src="usage-without.png" width="1200" height="684" alt="The agent's result without the screenshot command: the same content, but the three cards are narrow and bunched at the left, the badges sit next to their labels, and the buttons are at the left.">
+  <p class="label">Built with the screenshot command</p>
+  <img src="usage-with.png" width="1200" height="783" alt="The agent's result with the screenshot command: it looks the same as the target.">
+  <figcaption><b>One screen, three ways.</b> Without a way to see its result, the agent wrote the right content and left it bunched at the left: narrow cards, badges beside their labels, buttons on the wrong side. We chose this run because it shows the problem plainly. It is typical of the usage page in the first group, where three of the four runs had fewer than one text in ten in the right place.</figcaption>
+</figure>
+
+<h2 class="display">2. Telling the agent to compare changed little</h2>
+<p>With the extra sentence and no screenshot command, 6 of 12 runs matched, against 4 without the sentence. That difference is too small to tell from chance at this size. The agent opened the target picture once in every run, in every group, but in this group it had no picture of its own result to put next to it. Heights did come closer: all 12 were within 10% of the reference, against 7 of 12.</p>
+
+<h2 class="display">3. Human inspection was stricter than the script, and found the same result</h2>
+<p>After the scripts, we rated all 36 results by eye, each beside its target, in shuffled order and without knowing its group. The inspection accepted 2 of 12 from the first group, 3 of 12 from the second and 12 of 12 from the third. It agreed with the script on 31 of 36. The other 5 were all results the script passed and the inspection rejected.</p>
+<p>The rule behind it was written down only after rating: if the cards were not the same height as the target, the result was rejected without looking further. The script measures the height of the whole screen, not of each card, and on that measure the rule fits 36 of 36: the 17 accepted results are exactly those as tall as the reference build.</p>
+
+<p class="part">What the specs did fix</p>
+<h2 class="display">4. The written rules fixed the code</h2>
+<p>Before this round we made 72 runs across six setups, 12 each, to see what each piece does on its own. A hardcoded value is a colour, spacing or font value typed in directly, such as <code>#757575</code> or <code>16px</code>, instead of the design system's named token. With the rules loaded, 0 of 48 runs wrote one. Without them, 15 of 24 did. Example screens alone helped, but 5 of those 12 runs still wrote one.</p>
+
+<h2 class="display">5. A check stopped the agent from deleting the page</h2>
+<p>We did not plan for this failure. The app already had a page with content. The prompt did not say to keep it, and the agent often removed it to show the new screen: in the setup with the rules alone, in 12 of 12 runs. The setups started from pages of different sizes, so we cannot say how much of that is down to the rules. A check that blocks deleted content stopped it. It blocked 14 of 24 runs, each put the page back on the first try, and none finished with content missing.</p>
+
+<h2 class="display">6. None of it fixed the look</h2>
+<p>With the rules loaded, sizes, weights and colours were all right in 45 of 48 runs. Position was not: 19 of 48 matched. The agent had built each screen from a picture and never saw its own result in a browser, which is what the round above went on to test.</p>
+<p>We also built the usage page as a frame in Figma, in a copy of <a href="https://www.figma.com/community/file/1380235722331273046/simple-design-system">the design system's public Figma file</a>, and gave the agent a text description of the frame in place of the picture, 4 runs each way. The description was read once from Figma with <a href="https://github.com/GLips/Figma-Context-MCP">an open-source tool</a> and replayed, so this says nothing about Figma's own server. Layout came out closer to the frame from the description: of 23 texts, 19, 12, 19 and 19 were within 16 px of Figma's position, against 0, 8, 2 and 11 from the picture. The frame and the React code of the same design system do not agree on layout, and measured against the code the picture runs were the closer ones.</p>
+
+<p class="part">How we checked</p>
+<h2 class="display">The scores come from scripts, and then from an inspection that did not know the groups</h2>
+<p>No model scored anything. A script renders each result twice in Chrome and compares every text with the reference build; the two passes were identical for all 36. A second measure, written separately, compares the pictures pixel by pixel and agrees on the whole: 8 of the 12 results built with the screenshot command differ from the target in 0.02% of pixels or less, against 1 of the 24 built without it, where the typical difference is 5.0%. The key to the blind rating was written and committed before anyone saw the sheet. One test run per group before the batch confirmed that our own settings stayed out, and the screenshot command was checked to be unchanged after every run that used it.</p>
+
+<p class="aside">None of this says a screenshot is all an agent needs. The target picture was made by rendering a reference build, and the screenshot command renders the same way, so an exact match was reachable; a picture exported from a design tool will not match pixel for pixel, and we did not test the command against one. The script compares texts and height, not borders, shadows, icons or backgrounds, and the inspection's rule was height alone. It was done by one person, who knew the question though not the group of each result. Every result holds only for one model at one effort level, one design system, three screens and 12 runs per group, on 2026-11-19.</p>
+
+<section class="close" aria-label="Conclusion">
+  <p class="claim display">Specs tell the agent what to write; it still has to see what it built.</p>
+  <p class="line">Experienced developers know this already. This is a reminder to build it into the design-to-code flow.</p>
+  <dl class="takeaways">
+    <dt>Rules</dt><dd>With the written rules loaded, 0 of 48 runs typed in a raw value; without them, 15 of 24 did.</dd>
+    <dt>Checks</dt><dd>A check for deleted content blocked 14 of 24 runs, and every one put the page back.</dd>
+    <dt>The look</dt><dd>Rules, examples and checks together matched the target in 4 of 12 runs.</dd>
+    <dt>Being told</dt><dd>Telling the agent to compare gave 6 of 12, too small a change to tell from chance.</dd>
+    <dt>Seeing</dt><dd>With a screenshot of its own result, 12 of 12 matched, by script and by eye.</dd>
+  </dl>
+</section>
+
+<p class="thanks">Thanks to the designers who keep doing their best work. The tools are changing, and we see them bringing design and code closer together.</p>
+</article>
+
+<footer><a href="/">Luis Salas Gonzales</a></footer>
+</body>
+</html>
